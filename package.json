@@ -1,0 +1,17 @@
+{
+  "name": "gravity-hrms",
+  "version": "1.0.0",
+  "description": "Gravity HRMS - Full Stack Application",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run install:all && npm run build:frontend",
+    "start": "cd backend && node server.js",
+    "dev": "cd backend && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
