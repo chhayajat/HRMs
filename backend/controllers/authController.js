@@ -73,21 +73,25 @@ const registerTenant = async (req, res) => {
 
     const token = generateToken(user);
 
-    await AuditLog.create({
-      tenantId: tenant._id,
-      userId: user._id,
-      action: 'TENANT_REGISTERED',
-      details: `Company '${tenantName}' registered. HR Admin '${email}' created.`,
-      ipAddress: req.ip
-    });
+    try {
+      await AuditLog.create({
+        tenantId: tenant._id,
+        userId: user._id,
+        action: 'TENANT_REGISTERED',
+        details: `Company '${tenantName}' registered. HR Admin '${email}' created.`,
+        ipAddress: req.ip
+      });
+    } catch (_) { console.error('[Auth] AuditLog create failed:', _.message); }
 
-    await notifyUser({
-      tenantId: tenant._id,
-      userId: user._id,
-      title: 'Welcome to Gravity HRMS!',
-      message: `Hello ${name}, your company "${tenantName}" has been registered successfully. You can log in with ${email} and start managing employees, attendance, and leaves.`,
-      link: '/dashboard'
-    });
+    try {
+      await notifyUser({
+        tenantId: tenant._id,
+        userId: user._id,
+        title: 'Welcome to Gravity HRMS!',
+        message: `Hello ${name}, your company "${tenantName}" has been registered successfully. You can log in with ${email} and start managing employees, attendance, and leaves.`,
+        link: '/dashboard'
+      });
+    } catch (_) { console.error('[Auth] notifyUser failed:', _.message); }
 
     res.status(201).json({
       success: true,
