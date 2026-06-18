@@ -1,0 +1,505 @@
+{
+  "tenants": [
+    {
+      "_id": "a58ym3h7tjmy0f0tjn7o7d",
+      "name": "Antigravity Corp",
+      "domain": "antigravity.com",
+      "createdAt": "2026-06-13T13:42:02.530Z"
+    },
+    {
+      "_id": "5oa0b9bqnfpio1pmgik9qr",
+      "name": "Beta Systems",
+      "domain": "betasystems.com",
+      "createdAt": "2026-06-13T13:42:02.533Z"
+    }
+  ],
+  "users": [
+    {
+      "_id": "dwox3g7uz8s28fifrmw1h",
+      "email": "hr@antigravity.com",
+      "password": "$2a$10$8KT0ooWaetxwXIdAUijDEu0K.GbtkkLBwOA7ot5WUC04TGpJNAJCS",
+      "role": "HR",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeProfileId": "lejus0jld9btmx0skj7ua",
+      "createdAt": "2026-06-13T13:42:02.552Z"
+    },
+    {
+      "_id": "d3bsqwexytc8jdlfkf4opt",
+      "email": "manager@antigravity.com",
+      "password": "$2a$10$vKbVj66vO5BvIz5S7Rrd3utbM.SniRmWtUCzJIQDZ78liYRmAykkG",
+      "role": "Manager",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeProfileId": "eb433712jufszd5d4xbua",
+      "createdAt": "2026-06-13T13:42:02.898Z"
+    },
+    {
+      "_id": "p05cqhit7cc4vqwmrhdbgs",
+      "email": "employee@antigravity.com",
+      "password": "$2a$10$LYSaEVw6azHKACN045d9ZuqliH0o8JOFQyMB.ssALRyWYT.kj.TOC",
+      "role": "Employee",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeProfileId": "o6214uyfyrrs4a7wmfp8mi",
+      "createdAt": "2026-06-13T13:42:03.164Z"
+    },
+    {
+      "_id": "y4255z5bxkg8x5dtj7dafu",
+      "email": "leader@antigravity.com",
+      "password": "$2a$10$jRB3VjDASHCJ3lTjHXnv4O8W1APddjffVvJcPZZkjR9IijeFZ2.1u",
+      "role": "Leadership",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeProfileId": "yy4ncxkh9gljvtntbn3ud",
+      "createdAt": "2026-06-13T13:42:03.509Z"
+    },
+    {
+      "_id": "lqe6bcwjv55v0ud9n5ojs",
+      "email": "hr@betasystems.com",
+      "password": "$2a$10$JAIgk/8h/bzyghznwpjFHO8T7I2GufXSGMGDUpnyW3ZiKjjeUlw6e",
+      "role": "HR",
+      "tenantId": "5oa0b9bqnfpio1pmgik9qr",
+      "employeeProfileId": "r02gmjqo5vrqdccuxh7wkg",
+      "createdAt": "2026-06-13T13:42:03.848Z"
+    }
+  ],
+  "employees": [
+    {
+      "_id": "lejus0jld9btmx0skj7ua",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "AG-001",
+      "status": "Active",
+      "personal": {
+        "name": "Rita Sharma",
+        "gender": "Female",
+        "nationality": "Indian"
+      },
+      "contact": {
+        "personalEmail": "hr@antigravity.com",
+        "phone": "9876543210"
+      },
+      "employment": {
+        "department": "Human Resources",
+        "designation": "HR Lead",
+        "location": "Mumbai"
+      },
+      "createdAt": "2026-06-13T13:42:02.543Z"
+    },
+    {
+      "_id": "eb433712jufszd5d4xbua",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "AG-002",
+      "status": "Active",
+      "personal": {
+        "name": "Vikram Singh",
+        "gender": "Male",
+        "nationality": "Indian"
+      },
+      "contact": {
+        "personalEmail": "manager@antigravity.com",
+        "phone": "9876543211"
+      },
+      "employment": {
+        "department": "Engineering",
+        "designation": "Engineering Manager",
+        "location": "Bengaluru",
+        "managerId": "lejus0jld9btmx0skj7ua"
+      },
+      "createdAt": "2026-06-13T13:42:02.544Z"
+    },
+    {
+      "_id": "o6214uyfyrrs4a7wmfp8mi",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "AG-003",
+      "status": "Active",
+      "personal": {
+        "name": "Amit Patel",
+        "gender": "Male",
+        "nationality": "Indian"
+      },
+      "contact": {
+        "personalEmail": "employee@antigravity.com",
+        "phone": "9876543212"
+      },
+      "employment": {
+        "department": "Engineering",
+        "designation": "Software Engineer",
+        "location": "Bengaluru",
+        "managerId": "eb433712jufszd5d4xbua"
+      },
+      "createdAt": "2026-06-13T13:42:02.546Z"
+    },
+    {
+      "_id": "yy4ncxkh9gljvtntbn3ud",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "AG-004",
+      "status": "Active",
+      "personal": {
+        "name": "Suresh Mehta",
+        "gender": "Male",
+        "nationality": "Indian"
+      },
+      "contact": {
+        "personalEmail": "leader@antigravity.com",
+        "phone": "9876543213"
+      },
+      "employment": {
+        "department": "Leadership",
+        "designation": "VP Engineering",
+        "location": "Mumbai"
+      },
+      "createdAt": "2026-06-13T13:42:02.547Z"
+    },
+    {
+      "_id": "r02gmjqo5vrqdccuxh7wkg",
+      "tenantId": "5oa0b9bqnfpio1pmgik9qr",
+      "employeeId": "BETA-001",
+      "status": "Active",
+      "personal": {
+        "name": "Rahul Verma",
+        "gender": "Male",
+        "nationality": "Indian"
+      },
+      "contact": {
+        "personalEmail": "hr@betasystems.com",
+        "phone": "9811122233"
+      },
+      "employment": {
+        "department": "HR Operations",
+        "designation": "HR Manager",
+        "location": "Delhi"
+      },
+      "createdAt": "2026-06-13T13:42:02.548Z"
+    }
+  ],
+  "attendances": [
+    {
+      "_id": "tdx2kx7t43emudew2wgcn",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "date": "2026-06-08",
+      "punches": [
+        {
+          "type": "In",
+          "time": "2026-06-08T03:20:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        },
+        {
+          "type": "Out",
+          "time": "2026-06-08T12:30:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        }
+      ],
+      "totalHours": 9.17,
+      "status": "Present",
+      "createdAt": "2026-06-13T13:42:04.211Z"
+    },
+    {
+      "_id": "ifycyu9nrya136cum0kr1kf",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "date": "2026-06-09",
+      "punches": [
+        {
+          "type": "In",
+          "time": "2026-06-09T03:20:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        },
+        {
+          "type": "Out",
+          "time": "2026-06-09T12:30:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        }
+      ],
+      "totalHours": 9.17,
+      "status": "Present",
+      "createdAt": "2026-06-13T13:42:04.212Z"
+    },
+    {
+      "_id": "xi46ap9ti5r4qwyzxzrac",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "date": "2026-06-10",
+      "punches": [
+        {
+          "type": "In",
+          "time": "2026-06-10T03:20:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        },
+        {
+          "type": "Out",
+          "time": "2026-06-10T12:30:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        }
+      ],
+      "totalHours": 9.17,
+      "status": "Present",
+      "createdAt": "2026-06-13T13:42:04.213Z"
+    },
+    {
+      "_id": "tttdmfwy0escn9iqe5es19",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "date": "2026-06-11",
+      "punches": [
+        {
+          "type": "In",
+          "time": "2026-06-11T03:55:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        },
+        {
+          "type": "Out",
+          "time": "2026-06-11T12:30:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        }
+      ],
+      "totalHours": 8.58,
+      "status": "Late",
+      "createdAt": "2026-06-13T13:42:04.214Z"
+    },
+    {
+      "_id": "ifuodsia48n73qldc9rh",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "date": "2026-06-12",
+      "punches": [
+        {
+          "type": "In",
+          "time": "2026-06-12T03:20:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        },
+        {
+          "type": "Out",
+          "time": "2026-06-12T12:30:00.000Z",
+          "ipAddress": "192.168.1.55",
+          "location": "Office"
+        }
+      ],
+      "totalHours": 9.17,
+      "status": "Present",
+      "createdAt": "2026-06-13T13:42:04.214Z"
+    },
+    {
+      "_id": "mzyfel40vwdn19wd40gljd",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "date": "2026-06-12",
+      "punches": [],
+      "status": "Absent",
+      "regularization": {
+        "requested": true,
+        "reason": "Forget card/System issue",
+        "status": "Pending",
+        "originalStatus": "Absent",
+        "requestedPunches": [
+          {
+            "type": "In",
+            "time": "2026-06-12T03:35:00.000Z"
+          },
+          {
+            "type": "Out",
+            "time": "2026-06-12T12:35:00.000Z"
+          }
+        ]
+      },
+      "createdAt": "2026-06-13T13:42:04.222Z"
+    }
+  ],
+  "leaverequests": [
+    {
+      "_id": "lw2qwff5fqdy2b7p0ggon",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "leaveType": "Casual",
+      "startDate": "2026-06-15T13:42:04.198Z",
+      "endDate": "2026-06-17T13:42:04.198Z",
+      "reason": "Family emergency trip",
+      "status": "Pending",
+      "createdAt": "2026-06-13T13:42:04.215Z"
+    }
+  ],
+  "leavebalances": [
+    {
+      "_id": "v4i7k7p54htd5hwcalhj",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "lejus0jld9btmx0skj7ua",
+      "year": 2026,
+      "balances": [
+        {
+          "leaveType": "Casual",
+          "allocated": 12,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Sick",
+          "allocated": 10,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Earned",
+          "allocated": 15,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Loss of Pay",
+          "allocated": 999,
+          "used": 0,
+          "pending": 0
+        }
+      ],
+      "createdAt": "2026-06-13T13:42:04.149Z"
+    },
+    {
+      "_id": "3b87we35g063ghzyk4r7e",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "eb433712jufszd5d4xbua",
+      "year": 2026,
+      "balances": [
+        {
+          "leaveType": "Casual",
+          "allocated": 12,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Sick",
+          "allocated": 10,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Earned",
+          "allocated": 15,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Loss of Pay",
+          "allocated": 999,
+          "used": 0,
+          "pending": 0
+        }
+      ],
+      "createdAt": "2026-06-13T13:42:04.171Z"
+    },
+    {
+      "_id": "7oenodjy9y6szs6av67m",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "o6214uyfyrrs4a7wmfp8mi",
+      "year": 2026,
+      "balances": [
+        {
+          "leaveType": "Casual",
+          "allocated": 12,
+          "used": 0,
+          "pending": 3
+        },
+        {
+          "leaveType": "Sick",
+          "allocated": 10,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Earned",
+          "allocated": 15,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Loss of Pay",
+          "allocated": 999,
+          "used": 0,
+          "pending": 0
+        }
+      ],
+      "createdAt": "2026-06-13T13:42:04.172Z"
+    },
+    {
+      "_id": "nfaqjoct5oin21b1o7cg6",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "employeeId": "yy4ncxkh9gljvtntbn3ud",
+      "year": 2026,
+      "balances": [
+        {
+          "leaveType": "Casual",
+          "allocated": 12,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Sick",
+          "allocated": 10,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Earned",
+          "allocated": 15,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Loss of Pay",
+          "allocated": 999,
+          "used": 0,
+          "pending": 0
+        }
+      ],
+      "createdAt": "2026-06-13T13:42:04.173Z"
+    },
+    {
+      "_id": "2qei1zva22d7nzuc2lop7u",
+      "tenantId": "5oa0b9bqnfpio1pmgik9qr",
+      "employeeId": "r02gmjqo5vrqdccuxh7wkg",
+      "year": 2026,
+      "balances": [
+        {
+          "leaveType": "Casual",
+          "allocated": 12,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Sick",
+          "allocated": 10,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Earned",
+          "allocated": 15,
+          "used": 0,
+          "pending": 0
+        },
+        {
+          "leaveType": "Loss of Pay",
+          "allocated": 999,
+          "used": 0,
+          "pending": 0
+        }
+      ],
+      "createdAt": "2026-06-13T13:42:04.174Z"
+    }
+  ],
+  "auditlogs": [
+    {
+      "_id": "9hh06xahatotwybo2dsta",
+      "tenantId": "a58ym3h7tjmy0f0tjn7o7d",
+      "action": "SYSTEM_SEED",
+      "details": "Database seeded with default testing environment data.",
+      "createdAt": "2026-06-13T13:42:04.223Z"
+    }
+  ],
+  "notifications": [],
+  "profileeditrequests": []
+}
