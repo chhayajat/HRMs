@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { apiCall } from '../../apis/apiClient';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+
 export const loadMe = createAsyncThunk('auth/loadMe', async (token, { rejectWithValue }) => {
   try {
-    const data = await fetch('http://localhost:5000/api/auth/me', {
+    const data = await fetch(`${API_BASE_URL}/auth/me`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -55,7 +57,6 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout(state) {
-      console.log('[authSlice] logout - clearing localStorage');
       state.user = null;
       state.token = null;
       state.loading = false;
@@ -72,74 +73,55 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Load Me
       .addCase(loadMe.pending, (state) => {
-        console.log('[authSlice] loadMe.pending');
         state.loading = true;
       })
       .addCase(loadMe.fulfilled, (state, action) => {
-        console.log('[authSlice] loadMe.fulfilled - saving token to localStorage');
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.loading = false;
         state.error = null;
         localStorage.setItem('hrms_token', action.payload.token);
-        console.log('[authSlice] hrms_token saved to localStorage');
         if (action.payload.user?.tenantId) {
           localStorage.setItem('hrms_tenant_id', action.payload.user.tenantId);
-          console.log('[authSlice] hrms_tenant_id saved to localStorage:', action.payload.user.tenantId);
         }
       })
       .addCase(loadMe.rejected, (state, action) => {
-        console.log('[authSlice] loadMe.rejected - clearing localStorage');
         state.user = null;
         state.token = null;
         state.loading = false;
         localStorage.removeItem('hrms_token');
         localStorage.removeItem('hrms_tenant_id');
-        console.log('[authSlice] localStorage cleared due to loadMe failure:', action.payload);
       })
-      // Login
       .addCase(loginUser.pending, (state) => {
-        console.log('[authSlice] loginUser.pending');
         state.loading = true;
         state.error = null;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        console.log('[authSlice] loginUser.fulfilled - saving to localStorage');
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.loading = false;
         state.error = null;
         localStorage.setItem('hrms_token', action.payload.token);
         localStorage.setItem('hrms_tenant_id', action.payload.user.tenantId);
-        console.log('[authSlice] Login - hrms_token saved:', !!action.payload.token);
-        console.log('[authSlice] Login - hrms_tenant_id saved:', !!action.payload.user?.tenantId);
       })
       .addCase(loginUser.rejected, (state, action) => {
-        console.log('[authSlice] loginUser.rejected:', action.payload);
         state.loading = false;
         state.error = action.payload;
       })
-      // Register Tenant
       .addCase(registerTenantUser.pending, (state) => {
-        console.log('[authSlice] registerTenantUser.pending');
         state.loading = true;
         state.error = null;
       })
       .addCase(registerTenantUser.fulfilled, (state, action) => {
-        console.log('[authSlice] registerTenantUser.fulfilled - saving to localStorage');
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.loading = false;
         state.error = null;
         localStorage.setItem('hrms_token', action.payload.token);
         localStorage.setItem('hrms_tenant_id', action.payload.user.tenantId);
-        console.log('[authSlice] Register - hrms_token saved:', !!action.payload.token);
-        console.log('[authSlice] Register - hrms_tenant_id saved:', !!action.payload.user?.tenantId);
       })
       .addCase(registerTenantUser.rejected, (state, action) => {
-        console.log('[authSlice] registerTenantUser.rejected:', action.payload);
         state.loading = false;
         state.error = action.payload;
       });

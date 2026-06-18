@@ -25,8 +25,9 @@ connectDB();
 verifyConnection();
 
 // CORS configuration - Allow client requests
+const corsOrigin = process.env.CORS_ORIGIN || '*';
 app.use(cors({
-  origin: '*', // We can change this to specific client domains for production
+  origin: corsOrigin,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Tenant-ID', 'X-Tenant-ID']
 }));
