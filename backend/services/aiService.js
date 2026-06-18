@@ -20,18 +20,25 @@ const callOpenAi = async (systemPrompt, userPrompt) => {
   if (!hasOpenAiKey()) return null;
 
   const provider = (process.env.AI_PROVIDER || 'openai').toLowerCase();
-  const isOpenRouter = provider === 'openrouter';
+  const apiBaseUrl = process.env.AI_API_BASE_URL;
 
-  const url = isOpenRouter
-    ? 'https://openrouter.ai/api/v1/chat/completions'
-    : 'https://api.openai.com/v1/chat/completions';
+  let url;
+  if (apiBaseUrl) {
+    url = `${apiBaseUrl.replace(/\/$/, '')}/chat/completions`;
+  } else if (provider === 'openrouter') {
+    url = 'https://openrouter.ai/api/v1/chat/completions';
+  } else if (provider === 'nvidia') {
+    url = 'https://integrate.api.nvidia.com/v1/chat/completions';
+  } else {
+    url = 'https://api.openai.com/v1/chat/completions';
+  }
 
   const headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
   };
 
-  if (isOpenRouter) {
+  if (provider === 'openrouter') {
     headers['HTTP-Referer'] = process.env.FRONTEND_URL || 'http://localhost:5173';
     headers['X-Title'] = 'Gravity HRMS';
   }
@@ -52,7 +59,7 @@ const callOpenAi = async (systemPrompt, userPrompt) => {
 
   if (!response.ok) {
     const err = await response.text();
-    throw new Error(`${isOpenRouter ? 'OpenRouter' : 'OpenAI'} API error: ${err}`);
+    throw new Error(`${provider} API error: ${err}`);
   }
 
   const json = await response.json();
